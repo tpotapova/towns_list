@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+	<title>My Angular App</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+		<script type="text/javascript" src = 'static/main.js'></script>
+</head>
+<body>
+	<div ng-app="abc" ng-controller="MyController">
+	<ul>
+	<li ng-repeat="town in towns | startFrom:currentPage*pageSize |limitTo:pageSize">
+		<a href = "https://www.google.ru/#newwindow=1&q={{left_brackets}}town{{right_brackets}}" target="blank">
+		{{left_brackets}}town{{right_brackets}}</a>
+	</li>
+	</ul>
+	<button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+        Previous
+    </button>
+    {{left_brackets}}currentPage+1{{right_brackets}}/{{left_brackets}}numberOfPages(){{right_brackets}}
+    <button ng-disabled="currentPage >= towns.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+        Next
+    </button>
+	</div>
+</body>
+</html>
